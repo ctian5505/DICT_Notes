@@ -9,7 +9,6 @@ class Reservation:
 class RestaurantReservationSystem:
     def __init__(self):
         self.reservations = []
-        self.txt_file = "RESTAURANT_RESERVATION_SYSTEM.txt"
 
     def display_menu(self):
         print("\nSystem Menu")
