@@ -1,0 +1,38 @@
+x = input("---Record Keeping App---\na = Add Record \nb = View Record \nc = Clear All Records \nd = Exit\nWhat do you want? : ")
+while x.lower() == "a" or x.lower() == "b" or x.lower() == "c" or x.lower() == "d":
+    if x.lower() == "a":
+        print("----------------------------------------------")
+        arn = input("Enter Name: ")
+        are = input("Enter Email: ")
+        ara = input("Enter Address: ")
+        ar = (f"Name: {arn}, Email: {are}, Address: {ara}\n")
+        file = open("RKA_Database.txt", "a")
+        file.write(ar)
+        file.close()
+        print("----------------------------------------------")
+        print("Records Added...")
+        print("----------------------------------------------")
+        x = input("\n---Record Keeping App---\na = Add More Record \nb = View Record \nc = Clear All Records \nd = Exit\nWhat do you want? : ")
+    elif x.lower() == "b":
+        file = open("RKA_Database.txt", "r")
+        print("----------------------------------------------\nViewing Records...")
+        print(file.read())
+        print("----------------------------------------------")
+        file.close()
+        x = input("\n---Record Keeping App---\na = Add More Record \nb = View Record \nc = Clear All Records \nd = Exit\nWhat do you want? : ")
+    elif x.lower() == "c":
+        file = open("RKA_Database.txt", "w")
+        file.write("")
+        file.close()
+        print("----------------------------------------------\nRecords Deleted...")
+        print("No Records Found")
+        print("----------------------------------------------")
+        x = input("\n---Record Keeping App---\na = Add More Record \nb = View Record \nc = Clear All Records \nd = Exit\nWhat do you want? : ")
+    elif x.lower() == "d":
+        print("Thank you")
+        break
+else:
+    print("----------------------------------------------")
+    print("Wrong input")
+    print("----------------------------------------------")
+
