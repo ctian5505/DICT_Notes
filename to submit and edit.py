@@ -11,12 +11,6 @@ class RestaurantReservationSystem:
         self.reservations = []
         self.txt_file = "RESTAURANT_RESERVATION_SYSTEM.txt"
 
-    def save_data(self):
-        with open(self.txt_file, "a") as file:
-            for idx, reservation in enumerate(self.reservations, start=1):
-                file.write(
-                    f"{idx} {reservation.date} {reservation.time} {reservation.name} {reservation.adults} {reservation.children}\n")
-
     def display_menu(self):
         print("\nSystem Menu")
         print("a. View all Reservations")
@@ -37,17 +31,20 @@ class RestaurantReservationSystem:
                 print(f"{idx} {reservation.date} {reservation.time} {reservation.name} {reservation.adults} {reservation.children}")
             print("--------------------------------")
     def make_reservation(self):
-        print("--------------------------------")
-        print("Making Reservation...\n")
-        name = input("Enter name: ")
-        date = input("Enter date (e.g., Nov 10, 2020): ")
-        time = input("Enter time (e.g., 10:00 am): ")
-        adults = int(input("Enter number of adults: "))
-        children = int(input("Enter number of children: "))
-        reservation = Reservation(name, date, time, adults, children)
-        self.reservations.append(reservation)
-        print("\nReservation made successfully!")
-        print("--------------------------------")
+        try:
+            print("--------------------------------")
+            print("Making Reservation...\n")
+            name = input("Enter name: ")
+            date = input("Enter date (e.g., Jan 01, 2000): ")
+            time = input("Enter time (e.g., 12:00 am): ")
+            adults = int(input("Enter number of adults: "))
+            children = int(input("Enter number of children: "))
+            reservation = Reservation(name, date, time, adults, children)
+            self.reservations.append(reservation)
+            print("\nReservation made successfully!")
+            print("--------------------------------")
+        except ValueError:
+            print("Value Error")
 
     def delete_reservation(self):
         try:
@@ -74,7 +71,7 @@ class RestaurantReservationSystem:
         total_children = 0
         grand_total = 0
         for idx, reservation in enumerate(self.reservations, start=1):
-            subtotal = (reservation.adults * 800) + (reservation.children * 500)
+            subtotal = (reservation.adults * 500) + (reservation.children * 300)
             total_adults += reservation.adults
             total_children += reservation.children
             grand_total += subtotal
@@ -82,7 +79,7 @@ class RestaurantReservationSystem:
         print(f"Total number of adults: {total_adults}")
         print(f"Total number of children: {total_children}")
         print(f"Grand Total: PHP {grand_total:.2f}")
-        print("--------------------------------")
+        print("--------nothing follows---------")
 
     def run(self):
         while True:
@@ -98,7 +95,6 @@ class RestaurantReservationSystem:
                 self.generate_report()
             elif choice == 'e':
                 print("Thank you!")
-                self.save_data()
                 break
             else:
                 print("Invalid choice. Please select a valid option.")
