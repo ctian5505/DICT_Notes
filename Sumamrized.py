@@ -58,9 +58,10 @@
       else:
           print("Your string is a combination of lower case, upper case and digit"
 # Tuplw = ()  = It's immutable, meaning it cannot be changed after creation.
-# Dictionary = {} = It's an unordered and mutable data structure.
+# Dictionary = {} = It's an unordered and mutable data structure.(Key separated)
 # List =  [] = It's mutable, allowing you to add, remove, and modify elements.        
   #methods to control list and its object
+  /
       append() = Appends the obj to list
       count() = count how many times the obj occur in list
       extend() = Appends the obj of other lsit
@@ -127,4 +128,6 @@ male = ["Chris", "Tian"]
 female = ["Joy", "Joan"]
 male.extend(female)
 print(male)
+
+#Objeact = realworld
                 
